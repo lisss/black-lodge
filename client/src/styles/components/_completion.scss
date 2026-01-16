@@ -1,0 +1,93 @@
+.completion {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  position: relative;
+  background: 
+    linear-gradient(90deg, transparent 48%, $color-red-room 48%, $color-red-room 52%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, $color-red-room 48%, $color-red-room 52%, transparent 52%),
+    $color-black;
+  
+  &__curtain {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: 
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 80px,
+        rgba(139, 0, 0, 0.1) 80px,
+        rgba(139, 0, 0, 0.1) 100px
+      );
+    pointer-events: none;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 3rem;
+    color: $color-cream;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    text-shadow: 
+      2px 2px 0 $color-red-room,
+      -2px -2px 0 $color-red-room;
+    letter-spacing: 0.2em;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__message {
+    @include dossier-paper;
+    max-width: 700px;
+    padding: $spacing-xl;
+    border: 2px solid $color-gray-medium;
+    position: relative;
+    z-index: 1;
+
+    p {
+      color: $color-black;
+      line-height: 1.8;
+      margin-bottom: $spacing-md;
+      text-align: justify;
+    }
+  }
+
+  &__quote {
+    font-family: $font-display;
+    font-style: italic;
+    color: $color-red-room;
+    border-left: 4px solid $color-red-room;
+    padding-left: $spacing-md;
+    margin: $spacing-lg 0;
+    line-height: 1.8;
+  }
+
+  &__signature {
+    text-align: right;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.2rem;
+    color: $color-gray-dark;
+    margin-top: $spacing-lg;
+  }
+
+  &__button {
+    @include button-base;
+    margin-top: $spacing-xl;
+    color: $color-cream;
+    border-color: $color-cream;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      background: $color-cream;
+      color: $color-black;
+      border-color: $color-gold;
+    }
+  }
+}

@@ -1,0 +1,196 @@
+.quest {
+  min-height: 100vh;
+  background: $color-black;
+  padding: $spacing-lg;
+
+  &__header {
+    max-width: 1200px;
+    margin: 0 auto $spacing-lg;
+  }
+
+  &__progress {
+    @include typewriter-effect;
+    color: $color-gold;
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+  }
+
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.photograph {
+  @include dossier-paper;
+  padding: $spacing-lg;
+  height: fit-content;
+  border: 1px solid $color-gray-medium;
+
+  &__image {
+    background: $color-black;
+    padding: $spacing-md;
+    margin-bottom: $spacing-md;
+    border: 2px solid $color-gray-medium;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__caption {
+    @include typewriter-effect;
+    color: $color-red-room;
+    font-size: 0.8rem;
+    text-align: center;
+    letter-spacing: 0.1em;
+    border-top: 1px solid $color-gray-medium;
+    padding-top: $spacing-sm;
+  }
+}
+
+.briefing {
+  @include dossier-paper;
+  padding: $spacing-lg;
+  border: 1px solid $color-gray-medium;
+
+  &__title {
+    font-family: $font-display;
+    color: $color-black;
+    font-size: 1.8rem;
+    margin-bottom: $spacing-md;
+    text-align: center;
+    border-bottom: 2px solid $color-black;
+    padding-bottom: $spacing-sm;
+  }
+
+  &__text {
+    color: $color-black;
+    line-height: 1.8;
+    margin-bottom: $spacing-lg;
+    text-align: justify;
+  }
+
+  &__clue {
+    background: rgba(0, 0, 0, 0.05);
+    border-left: 4px solid $color-red-room;
+    padding: $spacing-md;
+    margin: $spacing-lg 0;
+
+    p {
+      margin: $spacing-sm 0;
+      color: $color-gray-dark;
+    }
+  }
+
+  &__clue-label {
+    @include typewriter-effect;
+    color: $color-red-room;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: $spacing-sm;
+    letter-spacing: 0.15em;
+  }
+}
+
+.puzzle {
+  background: rgba(139, 0, 0, 0.1);
+  border: 2px solid $color-red-room;
+  padding: $spacing-lg;
+  margin-top: $spacing-lg;
+
+  &__question {
+    font-family: $font-primary;
+    color: $color-black;
+    font-weight: bold;
+    margin-bottom: $spacing-md;
+    text-align: center;
+  }
+
+  &__input-group {
+    display: flex;
+    gap: $spacing-sm;
+  }
+
+  &__input {
+    flex: 1;
+    padding: $spacing-sm;
+    font-family: $font-primary;
+    border: 2px solid $color-black;
+    background: $color-white;
+    color: $color-black;
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: $color-red-room;
+    }
+  }
+
+  &__button {
+    @include button-base;
+    color: $color-black;
+    border-color: $color-black;
+    padding: $spacing-sm $spacing-lg;
+
+    &:hover {
+      background: $color-black;
+      color: $color-cream;
+    }
+  }
+
+  &__feedback {
+    margin-top: $spacing-md;
+    padding: $spacing-sm;
+    text-align: center;
+    font-weight: bold;
+    font-family: $font-primary;
+    letter-spacing: 0.2em;
+
+    &.correct {
+      color: #2d5016;
+      background: rgba(45, 80, 22, 0.2);
+      border: 2px solid #2d5016;
+    }
+
+    &.incorrect {
+      color: $color-red-room;
+      background: rgba(139, 0, 0, 0.2);
+      border: 2px solid $color-red-room;
+    }
+  }
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+
+  &__button {
+    @include button-base;
+    color: $color-black;
+    border-color: $color-black;
+    text-align: left;
+    padding: $spacing-md $spacing-lg;
+
+    &:hover {
+      background: $color-black;
+      color: $color-cream;
+      border-color: $color-gold;
+    }
+
+    &::before {
+      content: '▸ ';
+      margin-right: $spacing-sm;
+    }
+  }
+}

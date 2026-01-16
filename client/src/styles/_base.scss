@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  background: $color-black;
+  color: $color-cream;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.backwards-text {
+  font-family: $font-primary;
+  font-size: 1.2rem;
+  color: $color-red-curtain;
+  letter-spacing: 0.1em;
+  margin: $spacing-md 0;
+  text-align: center;
+}
+
+.cipher-text {
+  font-family: $font-primary;
+  font-size: 1.5rem;
+  color: $color-gold;
+  text-align: center;
+  line-height: 2;
+  margin: $spacing-lg 0;
+  letter-spacing: 0.2em;
+}
+
+.transmission-text {
+  font-family: $font-primary;
+  font-size: 1rem;
+  line-height: 1.8;
+  
+  p {
+    margin: $spacing-sm 0;
+  }
+}
+
+.glitch-text {
+  color: $color-red-curtain;
+  animation: glitch 2s infinite;
+}
+
+.code-text {
+  font-family: $font-primary;
+  color: $color-gold;
+  letter-spacing: 0.15em;
+}
+
+.ascii-art {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  pre {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    color: $color-beige;
+    text-align: left;
+  }
+}
+
+@keyframes glitch {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}

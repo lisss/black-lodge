@@ -1,0 +1,106 @@
+.welcome {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-lg;
+  background: 
+    radial-gradient(circle at 30% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+    $color-black;
+
+  &__content {
+    max-width: 800px;
+    width: 100%;
+  }
+}
+
+.dossier {
+  @include dossier-paper;
+  padding: $spacing-xl;
+  position: relative;
+  border: 1px solid $color-gray-medium;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.02) 2px,
+        rgba(0, 0, 0, 0.02) 4px
+      );
+    pointer-events: none;
+  }
+
+  &__stamp {
+    @include stamp-effect;
+    position: absolute;
+    top: $spacing-lg;
+    right: $spacing-lg;
+    color: $color-red-room;
+    border-color: $color-red-room;
+    font-size: 1.2rem;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 2.5rem;
+    color: $color-black;
+    text-align: center;
+    margin-bottom: $spacing-lg;
+    border-bottom: 3px double $color-black;
+    padding-bottom: $spacing-md;
+  }
+
+  &__classification {
+    @include typewriter-effect;
+    text-align: center;
+    color: $color-red-room;
+    font-size: 0.9rem;
+    margin-bottom: $spacing-xl;
+    line-height: 1.8;
+  }
+
+  &__briefing {
+    color: $color-black;
+    line-height: 1.8;
+    margin-bottom: $spacing-xl;
+
+    p {
+      margin-bottom: $spacing-md;
+      text-indent: 2em;
+      text-align: justify;
+
+      &:first-child {
+        text-indent: 0;
+        font-weight: bold;
+      }
+    }
+
+    strong {
+      color: $color-red-room;
+      font-weight: bold;
+    }
+  }
+
+  &__button {
+    @include button-base;
+    display: block;
+    width: 100%;
+    color: $color-black;
+    border-color: $color-black;
+    font-size: 1.1rem;
+
+    &:hover:not(:disabled) {
+      background: $color-black;
+      color: $color-cream;
+    }
+  }
+}
