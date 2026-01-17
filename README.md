@@ -72,6 +72,33 @@ npm run dev
 
 ## Deployment
 
+### Quick Deployment to Vercel
+
+This project includes automatic deployment to Vercel on every push to `main`/`master` branch.
+
+**Setup (one-time):**
+
+```bash
+# 1. Install Vercel CLI
+npm install -g vercel
+
+# 2. Deploy manually first time
+cd client
+vercel
+
+# 3. Get your Vercel token
+vercel token create
+
+# 4. Add to GitHub Secrets
+# Go to: GitHub repo → Settings → Secrets → Actions
+# Add: VERCEL_TOKEN (the token from step 3)
+
+# 5. Set environment variable in Vercel dashboard
+# VITE_API_URL = your backend URL
+```
+
+**Done!** Every push will auto-deploy. See `VERCEL_SETUP.md` for detailed instructions.
+
 ### Frontend (Vercel)
 
 ```bash
