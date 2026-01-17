@@ -19,21 +19,26 @@ function Welcome({ onStart, loading }: WelcomeProps) {
           </div>
           <div className="dossier__briefing">
             <p>
-              Agent, you have been selected for a matter of utmost secrecy and peculiarity.
+              <strong>London, April 1943.</strong> You've been summoned to Churchill's office for an unusual assignment.
             </p>
             <p>
-              Our reconnaissance photographer has discovered anomalies in aerial photographs
-              taken over occupied Europe—images of a room that should not exist. A room with
-              red curtains and black-and-white floors, appearing across multiple locations,
-              times, and altitudes.
+              <strong>The Story:</strong> Britain's best reconnaissance photographer, Agent Morrison, 
+              was documenting enemy positions across Europe when something impossible appeared in the photos. 
+              The same mysterious room—with red curtains and checkerboard floors—showing up in Berlin, 
+              Prague, and other cities. Always underground. Always identical.
             </p>
             <p>
-              The photographer has vanished. We recovered their notebook containing cryptic
-              messages and coordinates. Some entries are written backwards. Others reference
-              places that don't appear on any map.
+              Morrison became obsessed, filling a notebook with strange clues and backwards messages. 
+              Then three days ago, Morrison vanished without a trace.
             </p>
-            <p>We call it: <strong>The Black Lodge</strong>.</p>
-            <p>Your mission: Decode the photographs. Find the truth. Return safely.</p>
+            <p>
+              Churchill believes this "Black Lodge" (as Morrison called it) might be connected to 
+              enemy intelligence—or something far stranger. Your task: follow Morrison's clues, 
+              solve the mysteries, and discover what happened.
+            </p>
+            <p>
+              <strong>Don't worry—</strong> Morrison left hints for whoever came next. You won't be alone in this.
+            </p>
           </div>
           <button
             className="dossier__button"

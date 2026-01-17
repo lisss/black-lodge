@@ -14,9 +14,11 @@ interface QuestProps {
 function Quest({ session, onProgress, onComplete, onReset }: QuestProps) {
   const [answer, setAnswer] = useState('');
   const [feedback, setFeedback] = useState('');
+  const [showHint, setShowHint] = useState(false);
 
   const currentStep = questSteps[session.current_step];
   const isLastStep = session.current_step === questSteps.length - 1;
+  const isFirstStep = session.current_step === 0;
 
   if (!currentStep) {
     return (
@@ -70,6 +72,16 @@ function Quest({ session, onProgress, onComplete, onReset }: QuestProps) {
     }
     setAnswer('');
     setFeedback('');
+    setShowHint(false);
+  };
+
+  const handleBack = () => {
+    if (isFirstStep) return;
+    const prevStep = session.current_step - 1;
+    onProgress(prevStep, { action: 'back', timestamp: Date.now() });
+    setAnswer('');
+    setFeedback('');
+    setShowHint(false);
   };
 
   const handleAnswerSubmit = () => {
@@ -103,6 +115,11 @@ function Quest({ session, onProgress, onComplete, onReset }: QuestProps) {
         <div className="quest__progress">
           STAGE {session.current_step + 1} / {questSteps.length}
         </div>
+        {!isFirstStep && (
+          <button className="quest__back-button" onClick={handleBack}>
+            ← BACK
+          </button>
+        )}
       </div>
 
       <div className="quest__content">
@@ -127,6 +144,21 @@ function Quest({ session, onProgress, onComplete, onReset }: QuestProps) {
           {currentStep.puzzle && (
             <div className="puzzle">
               <div className="puzzle__question">{currentStep.puzzle.question}</div>
+              {currentStep.hint && (
+                <div className="puzzle__hint-container">
+                  <button 
+                    className="puzzle__hint-button"
+                    onClick={() => setShowHint(!showHint)}
+                  >
+                    {showHint ? '▼ Hide Hint' : '▶ Need a Hint?'}
+                  </button>
+                  {showHint && (
+                    <div className="puzzle__hint">
+                      💡 {currentStep.puzzle.hint || currentStep.hint}
+                    </div>
+                  )}
+                </div>
+              )}
               <div className="puzzle__input-group">
                 <input
                   type="text"

@@ -4,9 +4,11 @@ export interface QuestStep {
   caption: string;
   image?: React.ReactNode;
   clue?: React.ReactNode;
+  hint?: string;
   puzzle?: {
     question: string;
     answers: string[];
+    hint?: string;
   };
   choices?: {
     text: string;
@@ -15,22 +17,27 @@ export interface QuestStep {
 
 export const questSteps: QuestStep[] = [
   {
-    title: 'THE PHOTOGRAPHER\'S NOTEBOOK',
-    caption: 'RECOVERED ITEM #1 - LEATHER NOTEBOOK, WATER-DAMAGED',
-    description: 'The first page of the photographer\'s notebook contains a strange entry dated March 15, 1943. Most of it is illegible, but one line is circled repeatedly:',
+    title: 'WELCOME TO THE INVESTIGATION',
+    caption: 'CHURCHILL\'S BRIEFING ROOM - APRIL 1943',
+    description: 'Churchill slides a worn leather notebook across his desk. "This belonged to Morrison, our missing photographer. The first page has a simple message—but Morrison had a peculiar habit of writing things backwards to keep them secret from prying eyes."',
     clue: (
-      <div className="backwards-text">
-        ".ogdol kcalb eht ni teem lliw eW"
+      <div>
+        <p><strong>Morrison's First Note:</strong></p>
+        <div className="backwards-text">
+          ".egdoL kcalB"
+        </div>
+        <p className="code-text">Hint: Try reading it backwards (right to left)</p>
       </div>
     ),
     puzzle: {
-      question: 'Decode the message. What is the two-word location?',
-      answers: ['black lodge', 'the black lodge', 'blacklodge'],
+      question: 'What two words did Morrison write? (no spaces needed)',
+      answers: ['black lodge', 'blacklodge', 'the black lodge', 'theblacklodge'],
+      hint: 'Read the text from right to left: starting with the last letter',
     },
   },
   {
-    title: 'RECONNAISSANCE PHOTOGRAPH #247',
-    caption: 'AERIAL PHOTO - BERLIN - MARCH 18, 1943 - 14:32 GMT',
+    title: 'THE FIRST PHOTOGRAPH',
+    caption: 'RECONNAISSANCE PHOTO - BERLIN - MARCH 18, 1943',
     image: (
       <div className="ascii-art">
         <pre>{`
@@ -39,9 +46,9 @@ export const questSteps: QuestStep[] = [
     ║ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░ ║
     ║ ░░▓▓█████████████████░░░░░ ║
     ║ ░░▓▓█╔═══════════╗██░░░░░ ║
-    ║ ░░▓▓█║ ▀▀▀▀▀▀▀▀▀ ║██░░░░░ ║
-    ║ ░░▓▓█║   CURTAIN  ║██░░░░░ ║
-    ║ ░░▓▓█║ ▄▄▄▄▄▄▄▄▄ ║██░░░░░ ║
+    ║ ░░▓▓█║           ║██░░░░░ ║
+    ║ ░░▓▓█║  CURTAINS ║██░░░░░ ║
+    ║ ░░▓▓█║  (RED)    ║██░░░░░ ║
     ║ ░░▓▓█╚═══════════╝██░░░░░ ║
     ║ ░░▓▓███████████████░░░░░░ ║
     ║ ░░░░░░░░░░░░░░░░░░░░░░░░░ ║
@@ -49,41 +56,40 @@ export const questSteps: QuestStep[] = [
         `}</pre>
       </div>
     ),
-    description: 'This aerial photograph was taken over Berlin. Our analysts noticed an anomaly in building 247 - a room that appears to have red curtains visible from above, despite being an underground bunker. The thermal signature is impossible. The room is precisely 24 feet by 24 feet.',
+    description: 'This aerial photo shows an underground bunker in Berlin. Intelligence analysts were baffled—thermal imaging shows red curtains in a sealed room, 50 feet underground. Impossible. Morrison circled this image and wrote: "It appears. Always the same. Always watching."',
     clue: (
       <div>
-        <p>Photographer's note in margin: "The pattern repeats. Always squares. Always curtains."</p>
-        <p className="code-text">Coordinates: 52.5200° N, 13.4050° E</p>
+        <p>The room is precisely 24 feet by 24 feet. The curtains are deep red, like wine.</p>
+        <p><strong>What should we do?</strong> Churchill looks at you expectantly.</p>
       </div>
     ),
     choices: [
-      { text: 'Recommend immediate investigation' },
-      { text: 'Mark as optical illusion, continue surveillance' },
+      { text: 'This deserves investigation. Morrison was onto something.' },
+      { text: 'It\'s probably just a photo development error.' },
     ],
   },
   {
-    title: 'THE CIPHER',
-    caption: 'PHOTOGRAPHER\'S NOTEBOOK - PAGE 15',
-    description: 'The photographer left a cipher. Each number corresponds to a letter position in the alphabet (A=1, Z=26). Churchill\'s analysts need your help.',
+    title: 'MORRISON\'S FAVORITE PUZZLE',
+    caption: 'NOTEBOOK - PAGE 8 - "A SIMPLE CIPHER"',
+    description: 'Morrison loved puzzles and codes. This page has a simple number cipher. Morrison helpfully wrote at the top: "My favorite! A=1, B=2, C=3... and so on." The numbers below spell out a message.',
     clue: (
       <div className="cipher-text">
-        6-9-18-5
+        8 - 5 - 12 - 12 - 15
         <br />
-        23-1-12-11
         <br />
-        23-9-20-8
-        <br />
-        13-5
+        6 - 18 - 9 - 5 - 14 - 4
       </div>
     ),
+    hint: 'A=1, B=2, C=3, D=4, E=5, F=6, G=7, H=8... Convert each number to its letter!',
     puzzle: {
-      question: 'What is the decoded instruction? (four words)',
-      answers: ['fire walk with me', 'firewalkwithme'],
+      question: 'What does the message say? (two words, no spaces)',
+      answers: ['hello friend', 'hellofriend'],
+      hint: '8=H, 5=E, 12=L, 12=L, 15=O...',
     },
   },
   {
-    title: 'RECONNAISSANCE PHOTOGRAPH #331',
-    caption: 'AERIAL PHOTO - PRAGUE - APRIL 2, 1943 - 09:15 GMT',
+    title: 'THE PATTERN EMERGES',
+    caption: 'RECONNAISSANCE PHOTO - PRAGUE - APRIL 2, 1943',
     image: (
       <div className="ascii-art">
         <pre>{`
@@ -92,63 +98,68 @@ export const questSteps: QuestStep[] = [
     ║ ▓▓██████████████████████▓ ║
     ║ ▓▓██▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄██▓ ║
     ║ ▓▓██▀ ▀▀▀▀▀▀▀▀▀▀ ▀██▓ ║
-    ║ ▓▓██  ♦  FLOOR  ♦  ██▓ ║
-    ║ ▓▓██  PATTERN: B/W  ██▓ ║
+    ║ ▓▓██  ■□■□■□■□■  ██▓ ║
+    ║ ▓▓██  FLOOR TILES  ██▓ ║
+    ║ ▓▓██  BLACK/WHITE  ██▓ ║
     ║ ▓▓██▄ ▄▄▄▄▄▄▄▄▄▄ ▄██▓ ║
     ║ ▓▓██▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀██▓ ║
-    ║ ▓▓██████████████████████▓ ║
     ║ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ║
     ╚═══════════════════════════╝
         `}</pre>
       </div>
     ),
-    description: 'Another sighting. This time in Prague. The same dimensions. The same impossible thermal signature. But now we can see the floor pattern - a checkerboard of black and white tiles. Our photographer noted: "It\'s always the same room. Different cities. Same room."',
+    description: 'Another sighting! This time in Prague. Same dimensions. Same impossible location. But now you can see the floor: a perfect checkerboard pattern of black and white tiles. Morrison wrote: "The pattern repeats. The room is always identical. How?"',
     clue: (
       <div>
-        <p>Weather conditions: Clear skies, impossible visibility into underground structure.</p>
-        <p>The photographer\'s final entry before disappearing: "I think it\'s not IN these places. I think it\'s BETWEEN them."</p>
+        <p><strong>Morrison's note:</strong> "Three cities, one room. I think it's not IN these places—I think it exists BETWEEN them, somehow."</p>
+        <p>The photographs are authentic. The locations are confirmed. But how can the same room exist in multiple places?</p>
       </div>
     ),
     choices: [
-      { text: 'The photographer found something. Continue investigation.' },
-      { text: 'This is beyond military intelligence. Seal the files.' },
+      { text: 'Continue the investigation. This is getting interesting.' },
+      { text: 'Something supernatural is happening here.' },
     ],
   },
   {
-    title: 'THE FINAL TRANSMISSION',
-    caption: 'RADIO INTERCEPT - APRIL 5, 1943 - SOURCE UNKNOWN',
-    description: 'Three days before vanishing, the photographer transmitted a message on an emergency frequency. It was garbled, but Churchill\'s cryptographers reconstructed most of it:',
+    title: 'MORRISON\'S LAST MESSAGE',
+    caption: 'RADIO TRANSMISSION - APRIL 5, 1943',
+    description: 'Three days before vanishing, Morrison sent a garbled radio message. Most of it was lost to static, but you managed to reconstruct the final words. They are written backwards again—Morrison\'s signature security method.',
     clue: (
       <div className="transmission-text">
-        <p>"...found the entrance... not on any map... the curtains are..."</p>
-        <p className="glitch-text">[STATIC]</p>
-        <p>"...when you see the owl... the pattern of the tiles..."</p>
-        <p className="glitch-text">[STATIC]</p>
-        <p>"...not a place, it's a state of... the cup of coffee..."</p>
-        <p className="backwards-text">".em htiw klaw ton od ...esaelp"</p>
+        <p className="glitch-text">[STATIC... BREAKING UP...]</p>
+        <p>&quot;...found something... the room is real... I am going to...&quot;</p>
+        <p className="glitch-text">[HEAVY STATIC]</p>
+        <p><strong>Final words (backwards):</strong></p>
+        <div className="backwards-text">
+          &quot;...kcab emoc t'now I&quot;
+        </div>
         <p className="glitch-text">[TRANSMISSION ENDS]</p>
       </div>
     ),
+    hint: 'Remember: Morrison always wrote important things backwards. Read from right to left.',
     puzzle: {
-      question: 'What is the photographer\'s backwards warning? (five words)',
-      answers: ['please do not walk with me', 'pleasedonotwalkwithme'],
+      question: 'What were Morrison\'s final words? (four words, no spaces)',
+      answers: ['i wont come back', 'iwontcomeback', 'i won\'t come back', 'iwon\'tcomeback'],
+      hint: 'Start from the end and read each letter backwards',
     },
   },
   {
-    title: 'THE CHOICE',
+    title: 'YOUR DECISION',
     caption: 'CHURCHILL\'S OFFICE - APRIL 10, 1943',
-    description: 'You sit across from Churchill. His cigar smoke fills the room. He slides a folder across the desk.',
+    description: 'You\'ve laid out everything you found. Churchill lights his cigar thoughtfully.',
     clue: (
       <div>
-        <p><em>"I've read your analysis, agent. This... Black Lodge. A room that exists everywhere and nowhere. A photographer who found a door between worlds and vanished through it."</em></p>
-        <p><em>"The question is not whether it exists. The question is what we do about it."</em></p>
-        <p>He fixes you with a hard stare.</p>
-        <p><em>"Do we lock these files away and pretend we never saw them? Or do we admit that we're fighting wars on fronts we don't understand? That there are mysteries even victory won't solve?"</em></p>
+        <p><em>"So, Morrison found something inexplicable. A room that exists in multiple places. And now Morrison is gone."</em></p>
+        <p><em>"The question isn't whether the Black Lodge is real—the photographs prove that. The question is: what do we do with this knowledge?"</em></p>
+        <p>He looks at you seriously.</p>
+        <p><em>"Some mysteries are better left alone. But some truths, no matter how strange, demand to be understood. Morrison made their choice. Now you must make yours."</em></p>
+        <p><strong>What is your recommendation?</strong></p>
       </div>
     ),
     choices: [
-      { text: 'Seal the files. Some doors should remain closed.' },
-      { text: 'Continue investigation. The truth matters, whatever it is.' },
+      { text: 'Seal the files. Morrison is lost. We must move on.' },
+      { text: 'The investigation should continue. Understanding this is important.' },
+      { text: 'Morrison left us clues for a reason. Honor that courage.' },
     ],
   },
 ];
