@@ -18,6 +18,18 @@ function Quest({ session, onProgress, onComplete, onReset }: QuestProps) {
   const currentStep = questSteps[session.current_step];
   const isLastStep = session.current_step === questSteps.length - 1;
 
+  if (!currentStep) {
+    return (
+      <div className="quest">
+        <div className="quest__content">
+          <div className="briefing">
+            <h2 className="briefing__title">Loading...</h2>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (session.completed) {
     return (
       <div className="quest">
