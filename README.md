@@ -72,7 +72,7 @@ npm run dev
 
 ## Deployment
 
-### Quick Deployment to Vercel
+### Deployment to Vercel
 
 This project includes automatic deployment to Vercel on every push to `main`/`master` branch.
 
