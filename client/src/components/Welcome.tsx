@@ -24,7 +24,7 @@ function Welcome({ onStart, loading }: WelcomeProps) {
             <p>
               <strong>The Story:</strong> Britain's best reconnaissance photographer, Mr. Cooper, 
               was documenting enemy positions across Europe when something impossible appeared in the photos. 
-              The same mysterious room - with deep red curtains and zigzag black-and-white floors—showing up in Berlin, 
+              The same mysterious room — with deep red curtains and zigzag black-and-white floors — showing up in Berlin, 
               Prague, and other cities. Always underground. Always identical. Always watching.
             </p>
             <p>

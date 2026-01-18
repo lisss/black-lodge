@@ -19,12 +19,12 @@ export const questSteps: QuestStep[] = [
   {
     title: 'WELCOME TO THE INVESTIGATION',
     caption: 'CHURCHILL\'S BRIEFING ROOM - APRIL 1943',
-    description: 'Churchill pours himself a whisky and lights a fresh cigar. Through the smoke, he slides a worn leather notebook across his desk. "Mr. Cooper had a peculiar habit—writing things backwards to keep them secret. Start with page one. It mentions owls, of all things, and two words. Strange fellow—always said the world was wild at heart and weird on top."',
+    description: 'Churchill pours himself a whisky and lights a fresh cigar. Through the smoke, he slides a worn leather notebook across his desk. "Mr. Cooper had a peculiar habit — writing things backwards to keep them secret. Start with page one. It mentions owls, of all things, and two words. Strange fellow — always said the world was wild at heart and weird on top."',
     clue: (
       <div>
         <p><strong>Mr. Cooper's First Note:</strong></p>
         <div className="backwards-text">
-          ".egdoL kcalB"
+          ".egdoL DRSBA"
         </div>
         <p className="code-text">Hint: Try reading it backwards (right to left)</p>
         <p><em>Margin note: "The owls are not what they seem..."</em></p>
@@ -33,7 +33,7 @@ export const questSteps: QuestStep[] = [
     ),
     puzzle: {
       question: 'What two words did Mr. Cooper write? (no spaces needed)',
-      answers: ['ABSRD lodge', 'blacklodge', 'the ABSRD lodge', 'theblacklodge'],
+      answers: ['absrd lodge', 'absrdlodge', 'the absrd lodge', 'theabsrdlodge', 'ABSRD lodge', 'ABSRD LODGE'],
       hint: 'Read the text from right to left: starting with the last letter',
     },
   },
@@ -111,10 +111,10 @@ export const questSteps: QuestStep[] = [
         `}</pre>
       </div>
     ),
-    description: '"Another sighting," Churchill says, relighting his cigar. "Same dimensions. Same impossible location. But now we see the floor—perfect zigzag pattern, black and white. Mr. Cooper wrote about dancing, dreams, and someone lost on a street in Poland. Getting rather strange, I must say."',
+    description: '"Another sighting," Churchill says, relighting his cigar. "Same dimensions. Same impossible location. But now we see the floor — perfect zigzag pattern, black and white. Mr. Cooper wrote about dancing, dreams, and someone lost on a street in Poland. Getting rather strange, I must say."',
     clue: (
       <div>
-        <p><strong>Mr. Cooper's note:</strong> "Three cities, one room. I think it's not IN these places—I think it exists BETWEEN them, somehow."</p>
+        <p><strong>Mr. Cooper's note:</strong> "Three cities, one room. I think it's not IN these places — I think it exists BETWEEN them, somehow."</p>
         <p><em>Scribbled at bottom: "Is it future, or is it past? The silk curtain splits..."</em></p>
         <p>The photographs are authentic. The locations are confirmed. But how can the same room exist in multiple places?</p>
       </div>
@@ -127,7 +127,7 @@ export const questSteps: QuestStep[] = [
   {
     title: 'MORRISON\'S LAST MESSAGE',
     caption: 'RADIO TRANSMISSION - APRIL 5, 1943',
-    description: 'Three days before vanishing, Mr. Cooper sent a garbled radio message. Most of it was lost to static, but you managed to reconstruct the final words. They are written backwards again—Mr. Cooper\'s signature security method.',
+    description: 'Three days before vanishing, Mr. Cooper sent a garbled radio message. Most of it was lost to static, but you managed to reconstruct the final words. They are written backwards again — Mr. Cooper\'s signature security method.',
     clue: (
       <div className="transmission-text">
         <p className="glitch-text">[STATIC... BREAKING UP...]</p>
