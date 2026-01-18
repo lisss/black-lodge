@@ -19,18 +19,20 @@ export const questSteps: QuestStep[] = [
   {
     title: 'WELCOME TO THE INVESTIGATION',
     caption: 'CHURCHILL\'S BRIEFING ROOM - APRIL 1943',
-    description: 'Churchill slides a worn leather notebook across his desk. "This belonged to Morrison, our missing photographer. The first page has a simple message—but Morrison had a peculiar habit of writing things backwards to keep them secret from prying eyes."',
+    description: 'Churchill pours himself a whisky and lights a fresh cigar. Through the smoke, he slides a worn leather notebook across his desk. "Mr. Cooper had a peculiar habit—writing things backwards to keep them secret. Start with page one. It mentions owls, of all things, and two words. Strange fellow—always said the world was wild at heart and weird on top."',
     clue: (
       <div>
-        <p><strong>Morrison's First Note:</strong></p>
+        <p><strong>Mr. Cooper's First Note:</strong></p>
         <div className="backwards-text">
           ".egdoL kcalB"
         </div>
         <p className="code-text">Hint: Try reading it backwards (right to left)</p>
+        <p><em>Margin note: "The owls are not what they seem..."</em></p>
+        <p><em>Small sketch: A wooden match</em></p>
       </div>
     ),
     puzzle: {
-      question: 'What two words did Morrison write? (no spaces needed)',
+      question: 'What two words did Mr. Cooper write? (no spaces needed)',
       answers: ['black lodge', 'blacklodge', 'the black lodge', 'theblacklodge'],
       hint: 'Read the text from right to left: starting with the last letter',
     },
@@ -56,22 +58,23 @@ export const questSteps: QuestStep[] = [
         `}</pre>
       </div>
     ),
-    description: 'This aerial photo shows an underground bunker in Berlin. Intelligence analysts were baffled—thermal imaging shows red curtains in a sealed room, 50 feet underground. Impossible. Morrison circled this image and wrote: "It appears. Always the same. Always watching."',
+    description: 'Churchill takes a long draw from his cigar and studies the photograph. "This aerial photo shows an underground bunker in Berlin. Red curtains, 50 feet underground. Impossible." He taps ash into a crystal ashtray. "Mr. Cooper circled this and wrote about coffee, zigzag floors, and something watching. Also sketched a woman in trouble, wandering dark streets. Peculiar mind."',
     clue: (
       <div>
         <p>The room is precisely 24 feet by 24 feet. The curtains are deep red, like wine.</p>
-        <p><strong>What should we do?</strong> Churchill looks at you expectantly.</p>
+        <p><strong>Mr. Cooper's note in margin:</strong> <em>&quot;Through the darkness of future past... the room waits. A yellow light in the distance.&quot;</em></p>
+        <p><strong>What should we do?</strong> Churchill looks at you expectantly, whisky in hand.</p>
       </div>
     ),
     choices: [
-      { text: 'This deserves investigation. Morrison was onto something.' },
+      { text: 'This deserves investigation. Mr. Cooper was onto something.' },
       { text: 'It\'s probably just a photo development error.' },
     ],
   },
   {
     title: 'MORRISON\'S FAVORITE PUZZLE',
     caption: 'NOTEBOOK - PAGE 8 - "A SIMPLE CIPHER"',
-    description: 'Morrison loved puzzles and codes. This page has a simple number cipher. Morrison helpfully wrote at the top: "My favorite! A=1, B=2, C=3... and so on." The numbers below spell out a message.',
+    description: 'Churchill refills his glass of scotch. "Mr. Cooper loved puzzles and codes. Always had a cup of coffee while working them—said it helped thinking. This page has a simple number cipher with a friendly greeting. A=1, B=2, and so on. Elementary, really."',
     clue: (
       <div className="cipher-text">
         8 - 5 - 12 - 12 - 15
@@ -108,10 +111,11 @@ export const questSteps: QuestStep[] = [
         `}</pre>
       </div>
     ),
-    description: 'Another sighting! This time in Prague. Same dimensions. Same impossible location. But now you can see the floor: a perfect checkerboard pattern of black and white tiles. Morrison wrote: "The pattern repeats. The room is always identical. How?"',
+    description: '"Another sighting," Churchill says, relighting his cigar. "Same dimensions. Same impossible location. But now we see the floor—perfect zigzag pattern, black and white. Mr. Cooper wrote about dancing, dreams, and someone lost on a street in Poland. Getting rather strange, I must say."',
     clue: (
       <div>
-        <p><strong>Morrison's note:</strong> "Three cities, one room. I think it's not IN these places—I think it exists BETWEEN them, somehow."</p>
+        <p><strong>Mr. Cooper's note:</strong> "Three cities, one room. I think it's not IN these places—I think it exists BETWEEN them, somehow."</p>
+        <p><em>Scribbled at bottom: "Is it future, or is it past? The silk curtain splits..."</em></p>
         <p>The photographs are authentic. The locations are confirmed. But how can the same room exist in multiple places?</p>
       </div>
     ),
@@ -123,7 +127,7 @@ export const questSteps: QuestStep[] = [
   {
     title: 'MORRISON\'S LAST MESSAGE',
     caption: 'RADIO TRANSMISSION - APRIL 5, 1943',
-    description: 'Three days before vanishing, Morrison sent a garbled radio message. Most of it was lost to static, but you managed to reconstruct the final words. They are written backwards again—Morrison\'s signature security method.',
+    description: 'Three days before vanishing, Mr. Cooper sent a garbled radio message. Most of it was lost to static, but you managed to reconstruct the final words. They are written backwards again—Mr. Cooper\'s signature security method.',
     clue: (
       <div className="transmission-text">
         <p className="glitch-text">[STATIC... BREAKING UP...]</p>
@@ -136,9 +140,9 @@ export const questSteps: QuestStep[] = [
         <p className="glitch-text">[TRANSMISSION ENDS]</p>
       </div>
     ),
-    hint: 'Remember: Morrison always wrote important things backwards. Read from right to left.',
+    hint: 'Remember: Mr. Cooper always wrote important things backwards. Read from right to left.',
     puzzle: {
-      question: 'What were Morrison\'s final words? (four words, no spaces)',
+      question: 'What were Mr. Cooper\'s final words? (four words, no spaces)',
       answers: ['i wont come back', 'iwontcomeback', 'i won\'t come back', 'iwon\'tcomeback'],
       hint: 'Start from the end and read each letter backwards',
     },
@@ -146,20 +150,20 @@ export const questSteps: QuestStep[] = [
   {
     title: 'YOUR DECISION',
     caption: 'CHURCHILL\'S OFFICE - APRIL 10, 1943',
-    description: 'You\'ve laid out everything you found. Churchill lights his cigar thoughtfully.',
+    description: 'You have laid out everything you found. Churchill pours two glasses of whisky and offers you one. He lights a fresh Romeo y Julieta cigar, his favorite.',
     clue: (
       <div>
-        <p><em>"So, Morrison found something inexplicable. A room that exists in multiple places. And now Morrison is gone."</em></p>
-        <p><em>"The question isn't whether the Black Lodge is real—the photographs prove that. The question is: what do we do with this knowledge?"</em></p>
-        <p>He looks at you seriously.</p>
-        <p><em>"Some mysteries are better left alone. But some truths, no matter how strange, demand to be understood. Morrison made their choice. Now you must make yours."</em></p>
-        <p><strong>What is your recommendation?</strong></p>
+        <p><em>&quot;So. Mr. Cooper found something inexplicable—a room that defies location and logic. Owls. Backwards messages. Dreams bleeding into reality. And now Mr. Cooper is gone.&quot;</em></p>
+        <p>He takes a slow sip of scotch.</p>
+        <p><em>&quot;I have fought in trenches, commanded armies, survived assassination attempts. But this... this is something else entirely.&quot;</em></p>
+        <p><em>&quot;The photographs are real. The mystery is real. The question now: do we pursue truth, no matter how dark the path? Or do we leave some doors unopened?&quot;</em></p>
+        <p>Churchill looks at you through a cloud of cigar smoke, waiting for your counsel.</p>
       </div>
     ),
     choices: [
-      { text: 'Seal the files. Morrison is lost. We must move on.' },
-      { text: 'The investigation should continue. Understanding this is important.' },
-      { text: 'Morrison left us clues for a reason. Honor that courage.' },
+      { text: 'Seal the files. Some mysteries are too dangerous.' },
+      { text: 'The investigation must continue. We need answers.' },
+      { text: 'Mr. Cooper walked through fire for this truth. Honor that.' },
     ],
   },
 ];

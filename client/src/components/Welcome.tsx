@@ -19,25 +19,26 @@ function Welcome({ onStart, loading }: WelcomeProps) {
           </div>
           <div className="dossier__briefing">
             <p>
-              <strong>London, April 1943.</strong> You've been summoned to Churchill's office for an unusual assignment.
+              <strong>London, April 1943.</strong> You've been summoned to Churchill's office for an unusual assignment. The air is thick with cigar smoke.
             </p>
             <p>
-              <strong>The Story:</strong> Britain's best reconnaissance photographer, Agent Morrison, 
+              <strong>The Story:</strong> Britain's best reconnaissance photographer, Mr. Cooper, 
               was documenting enemy positions across Europe when something impossible appeared in the photos. 
-              The same mysterious room—with red curtains and checkerboard floors—showing up in Berlin, 
-              Prague, and other cities. Always underground. Always identical.
+              The same mysterious room—with deep red curtains and zigzag black-and-white floors—showing up in Berlin, 
+              Prague, and other cities. Always underground. Always identical. Always watching.
             </p>
             <p>
-              Morrison became obsessed, filling a notebook with strange clues and backwards messages. 
-              Then three days ago, Morrison vanished without a trace.
+              Mr. Cooper became obsessed, filling a notebook with strange clues and backwards messages. 
+              Notes about owls, coffee, dreams, fire, and a woman lost on a dark street. 
+              Then three days ago, Mr. Cooper vanished without a trace.
             </p>
             <p>
-              Churchill believes this "Black Lodge" (as Morrison called it) might be connected to 
-              enemy intelligence—or something far stranger. Your task: follow Morrison's clues, 
+              Churchill, nursing his evening whisky, believes this "Black Lodge" (as Mr. Cooper called it) might be connected to 
+              enemy intelligence—or something far stranger. Your task: follow Mr. Cooper's clues, 
               solve the mysteries, and discover what happened.
             </p>
             <p>
-              <strong>Don't worry—</strong> Morrison left hints for whoever came next. You won't be alone in this.
+              <strong>Don't worry—</strong> Mr. Cooper left hints for whoever came next. You won't be alone in this.
             </p>
           </div>
           <button
