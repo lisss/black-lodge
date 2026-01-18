@@ -47,7 +47,7 @@ function Quest({ session, onProgress, onComplete, onReset }: QuestProps) {
             </p>
             <blockquote className="completion__quote">
               "Some doors, once opened, can never be closed. But we can choose
-              whether to walk through them—or to seal them forever. You made
+              whether to walk through them — or to seal them forever. You made
               your choice. History will be the judge."
             </blockquote>
             <p className="completion__signature">— The Photographer, 1943</p>

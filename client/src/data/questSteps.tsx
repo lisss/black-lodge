@@ -74,7 +74,7 @@ export const questSteps: QuestStep[] = [
   {
     title: 'MORRISON\'S FAVORITE PUZZLE',
     caption: 'NOTEBOOK - PAGE 8 - "A SIMPLE CIPHER"',
-    description: 'Churchill refills his glass of scotch. "Mr. Cooper loved puzzles and codes. Always had a cup of coffee while working them—said it helped thinking. This page has a simple number cipher with a friendly greeting. A=1, B=2, and so on. Elementary, really."',
+    description: 'Churchill refills his glass of scotch. "Mr. Cooper loved puzzles and codes. Always had a cup of coffee while working them — said it helped thinking. This page has a simple number cipher with a friendly greeting. A=1, B=2, and so on. Elementary, really."',
     clue: (
       <div className="cipher-text">
         8 - 5 - 12 - 12 - 15
@@ -153,7 +153,7 @@ export const questSteps: QuestStep[] = [
     description: 'You have laid out everything you found. Churchill pours two glasses of whisky and offers you one. He lights a fresh Romeo y Julieta cigar, his favorite.',
     clue: (
       <div>
-        <p><em>&quot;So. Mr. Cooper found something inexplicable—a room that defies location and logic. Owls. Backwards messages. Dreams bleeding into reality. And now Mr. Cooper is gone.&quot;</em></p>
+        <p><em>&quot;So. Mr. Cooper found something inexplicable — a room that defies location and logic. Owls. Backwards messages. Dreams bleeding into reality. And now Mr. Cooper is gone.&quot;</em></p>
         <p>He takes a slow sip of scotch.</p>
         <p><em>&quot;I have fought in trenches, commanded armies, survived assassination attempts. But this... this is something else entirely.&quot;</em></p>
         <p><em>&quot;The photographs are real. The mystery is real. The question now: do we pursue truth, no matter how dark the path? Or do we leave some doors unopened?&quot;</em></p>

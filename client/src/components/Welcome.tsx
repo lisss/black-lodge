@@ -34,7 +34,7 @@ function Welcome({ onStart, loading }: WelcomeProps) {
             </p>
             <p>
               Churchill, nursing his evening whisky, believes this "ABSRD lodge" (as Mr. Cooper called it) might be connected to 
-              enemy intelligence—or something far stranger. Your task: follow Mr. Cooper's clues, 
+              enemy intelligence — or something far stranger. Your task: follow Mr. Cooper's clues, 
               solve the mysteries, and discover what happened.
             </p>
             <p>
