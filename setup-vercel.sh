@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Black Lodge - Vercel Deployment Setup"
+echo "🚀 ABSRD Lodge - Vercel Deployment Setup"
 echo ""
 
 if ! command -v vercel &> /dev/null; then

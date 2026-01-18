@@ -33,7 +33,7 @@ export const questSteps: QuestStep[] = [
     ),
     puzzle: {
       question: 'What two words did Mr. Cooper write? (no spaces needed)',
-      answers: ['black lodge', 'blacklodge', 'the black lodge', 'theblacklodge'],
+      answers: ['ABSRD lodge', 'blacklodge', 'the ABSRD lodge', 'theblacklodge'],
       hint: 'Read the text from right to left: starting with the last letter',
     },
   },

@@ -9,7 +9,7 @@ function Welcome({ onStart, loading }: WelcomeProps) {
       <div className="welcome__content">
         <div className="dossier">
           <div className="dossier__stamp">TOP SECRET</div>
-          <h1 className="dossier__title">THE BLACK LODGE</h1>
+          <h1 className="dossier__title">THE ABSRD LODGE</h1>
           <div className="dossier__classification">
             CLASSIFIED: EYES ONLY
             <br />
@@ -24,7 +24,7 @@ function Welcome({ onStart, loading }: WelcomeProps) {
             <p>
               <strong>The Story:</strong> Britain's best reconnaissance photographer, Mr. Cooper, 
               was documenting enemy positions across Europe when something impossible appeared in the photos. 
-              The same mysterious room—with deep red curtains and zigzag black-and-white floors—showing up in Berlin, 
+              The same mysterious room - with deep red curtains and zigzag black-and-white floors—showing up in Berlin, 
               Prague, and other cities. Always underground. Always identical. Always watching.
             </p>
             <p>
@@ -33,12 +33,12 @@ function Welcome({ onStart, loading }: WelcomeProps) {
               Then three days ago, Mr. Cooper vanished without a trace.
             </p>
             <p>
-              Churchill, nursing his evening whisky, believes this "Black Lodge" (as Mr. Cooper called it) might be connected to 
+              Churchill, nursing his evening whisky, believes this "ABSRD lodge" (as Mr. Cooper called it) might be connected to 
               enemy intelligence—or something far stranger. Your task: follow Mr. Cooper's clues, 
               solve the mysteries, and discover what happened.
             </p>
             <p>
-              <strong>Don't worry—</strong> Mr. Cooper left hints for whoever came next. You won't be alone in this.
+              <strong>Don't worry — </strong> Mr. Cooper left hints for whoever came next. You won't be alone in this.
             </p>
           </div>
           <button

@@ -1,6 +1,6 @@
-# welcome to the Black Lodge, sweety :)
+# welcome to the Lodge, sweety-kitty :) This is an absurd stuff you don't need to understand at all. Like, when you read the 'Alice in Wonderland' or watch any David Lynch's movie. Just accept that it's gonna be weird
 
-A WWII espionage quest with Twin Peaks-inspired surreal mystery elements. Decode classified photographs, solve cryptic puzzles, and uncover the truth about The Black Lodge.
+A WWII espionage quest with Twin Peaks-inspired surreal mystery elements. Decode classified photographs, solve cryptic puzzles, and uncover the truth about The ABSRD lodge.
 
 ## Tech Stack
 

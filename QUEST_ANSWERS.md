@@ -3,7 +3,7 @@
 ## Stage 1: Welcome to the Investigation
 **Question**: What two words did Mr. Cooper write?
 **Backward text**: ".egdoL kcalB"
-**Answer**: `black lodge` or `blacklodge`
+**Answer**: `ABSRD lodge` or `blacklodge`
 **Hint**: Read it backwards (right to left)
 
 ## Stage 2: The First Photograph
@@ -56,7 +56,7 @@ All choices lead to quest completion!
 - **Mr. Cooper's Character**: Friendly guide who left helpful hints
 
 ### Story Improvements:
-- Clear explanation of Churchill, photos, and Black Lodge connection
+- Clear explanation of Churchill, photos, and ABSRD lodge connection
 - Mr. Cooper is now a character you're following (not abstract)
 - Less cryptic, more adventure-story feel
 - Multiple choice endings for player agency
