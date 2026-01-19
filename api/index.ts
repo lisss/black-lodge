@@ -125,7 +125,7 @@ app.put('/api/session/:sessionId/progress', async (req, res) => {
   }
 });
 
-app.post('/session/:sessionId/complete', async (req, res) => {
+app.post('/api/session/:sessionId/complete', async (req, res) => {
   try {
     if (pool) {
       const result = await pool.query(
