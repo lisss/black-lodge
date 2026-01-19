@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Quest from './components/Quest';
 import Welcome from './components/Welcome';
 
-const API_URL = import.meta.env.VITE_API_URL || '';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 interface Session {
   id: number;
