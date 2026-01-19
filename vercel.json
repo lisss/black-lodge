@@ -4,11 +4,11 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/$1"
+      "destination": "/api"
     },
     {
-      "source": "/(.*)",
-      "destination": "/client/dist/index.html"
+      "source": "/health",
+      "destination": "/api"
     }
   ]
 }
