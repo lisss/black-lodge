@@ -1,39 +1,72 @@
 # Deployment Guide
 
-## Option 1: Vercel (Frontend) + Railway (Backend)
+## Vercel Deployment (Recommended)
 
-### Backend on Railway
+This project is configured for full-stack deployment on Vercel using serverless functions.
 
-1. **Create Railway account**: https://railway.app
-2. **Create new project** → Deploy from GitHub
-3. **Add PostgreSQL database**:
-   - Click "New" → Database → PostgreSQL
-   - Railway automatically sets `DATABASE_URL`
-4. **Deploy backend**:
-   - Select `/server` as root directory
-   - Railway will auto-detect Node.js
-   - No additional config needed
-5. **Copy your backend URL** (e.g., `https://your-app.railway.app`)
+### Architecture
 
-### Frontend on Vercel
+- **Frontend**: React static site served from Vercel CDN
+- **Backend**: Express API wrapped as Vercel serverless function (`api/index.ts`)
+- **Database**: In-memory storage (with optional Vercel Postgres for persistence)
+
+### Initial Setup
 
 1. **Install Vercel CLI**:
 ```bash
-npm i -g vercel
+npm install -g vercel
 ```
 
-2. **Deploy from client directory**:
+2. **Link your project**:
 ```bash
-cd client
+vercel link
+```
+
+3. **Deploy**:
+```bash
+vercel --prod
+```
+
+### Automatic Deployments
+
+The project includes GitHub Actions workflow (`.github/workflows/deploy.yml`) for automatic deployments on every push to `main`.
+
+**Setup GitHub Actions:**
+
+1. Get your Vercel token:
+```bash
+vercel token create
+```
+
+2. Add to GitHub repository secrets:
+   - Go to: GitHub repo → Settings → Secrets → Actions
+   - Add: `VERCEL_TOKEN` (paste the token)
+
+**Done!** Every push to `main` will automatically deploy.
+
+### Adding Persistent Database (Optional)
+
+By default, the app uses in-memory storage which resets on each deployment. To add persistent storage:
+
+1. **Go to Vercel Dashboard** → Your Project → Storage
+2. **Create Database** → Postgres
+3. **Name it** (e.g., `black-lodge-db`)
+
+Vercel will automatically inject `POSTGRES_URL` into your serverless functions.
+
+### Manual Deployment
+
+```bash
+# Deploy to production
+vercel --prod
+
+# Deploy to preview
 vercel
 ```
 
-3. **Set environment variable** in Vercel dashboard:
-   - `VITE_API_URL` = Your Railway backend URL
+## Alternative: Docker on VPS
 
-4. **Done!** Your app is live.
-
-## Option 2: Docker on VPS (DigitalOcean, Hetzner, etc.)
+If you prefer to self-host:
 
 1. **SSH into your server**
 
@@ -45,62 +78,44 @@ git clone <your-repo>
 cd black-lodge
 ```
 
-4. **Update docker-compose.yml** for production:
-```yaml
-# Add nginx reverse proxy or use Traefik
-# Configure SSL with Let's Encrypt
-```
-
-5. **Start containers**:
+4. **Start containers**:
 ```bash
 docker-compose up -d
 ```
 
-6. **Configure DNS** to point to your server
+5. **Configure reverse proxy** (nginx/Traefik) and SSL (Let's Encrypt)
 
-## Option 3: Render
+## Environment Variables
 
-### Backend
+The app works out of the box without environment variables. Optional variables:
 
-1. Create new **Web Service** on Render
-2. Connect GitHub repository
-3. Configure:
-   - Build Command: `cd server && npm install && npm run build`
-   - Start Command: `cd server && npm start`
-4. Add PostgreSQL database (or use external like Neon/Supabase)
-5. Set environment variables
+### Production (Vercel)
+- `POSTGRES_URL`: PostgreSQL connection string (auto-set if using Vercel Postgres)
+- `DATABASE_URL`: Alternative PostgreSQL connection string
 
-### Frontend
-
-1. Create new **Static Site** on Render
-2. Configure:
-   - Build Command: `cd client && npm install && npm run build`
-   - Publish Directory: `client/dist`
-3. Set `VITE_API_URL` environment variable
-
-## Option 4: AWS (Advanced)
-
-- **Frontend**: S3 + CloudFront
-- **Backend**: ECS Fargate or App Runner
-- **Database**: RDS PostgreSQL
-
-## Environment Variables Summary
-
-### Backend
-- `DATABASE_URL`: PostgreSQL connection string
-- `PORT`: Server port (usually auto-set)
-- `NODE_ENV`: `production`
-
-### Frontend
-- `VITE_API_URL`: Backend API URL (with https://)
+### Development (Local)
+- `DATABASE_URL`: Local PostgreSQL (default: `postgresql://postgres:postgres@localhost:5432/blacklodge`)
+- `PORT`: Server port (default: 3001)
 
 ## Post-Deployment Checklist
 
-- [ ] Backend health check works: `GET /health`
-- [ ] Frontend loads correctly
-- [ ] Can start new quest session
-- [ ] Progress saves to database
+- [ ] Frontend loads: https://your-domain.vercel.app
+- [ ] Health check works: https://your-domain.vercel.app/health
+- [ ] Can start new quest session (click "ACCEPT MISSION")
+- [ ] Progress saves (navigate through quest steps)
 - [ ] Quest completion works
-- [ ] CORS configured correctly
-- [ ] SSL/HTTPS enabled
-- [ ] Database backups configured
+- [ ] Sessions persist after reload (if using Vercel Postgres)
+
+## Troubleshooting
+
+### "Method Not Allowed" errors
+- Check that `api/index.ts` routes match frontend API calls
+- Verify `vercel.json` rewrites are correct
+
+### Database connection errors
+- If using Vercel Postgres, ensure it's properly connected
+- Check that `POSTGRES_URL` is available in function logs
+
+### Frontend can't reach backend
+- Verify frontend uses relative paths in production (`import.meta.env.PROD`)
+- Check browser console for CORS errors

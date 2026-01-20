@@ -7,7 +7,7 @@ A WWII espionage quest with Twin Peaks-inspired surreal mystery elements. Decode
 - **Frontend**: React 18 + TypeScript + SASS
 - **Backend**: Node.js + Express + PostgreSQL
 - **Infrastructure**: Docker + Docker Compose
-- **Deployment**: Vercel (frontend) + Railway/Render (backend)
+- **Deployment**: Vercel (serverless functions)
 
 ## Local Development
 
@@ -72,9 +72,14 @@ npm run dev
 
 ## Deployment
 
-### Deployment to Vercel
+### Vercel Deployment
 
-This project includes automatic deployment to Vercel on every push to `main`/`master` branch.
+This project is fully deployed on Vercel with automatic deployments on every push to `main` branch.
+
+**Architecture:**
+- Frontend: React static files served from Vercel CDN
+- Backend: Express API wrapped as Vercel serverless function (`api/index.ts`)
+- Database: In-memory fallback (or add Vercel Postgres for persistence)
 
 **Setup (one-time):**
 
@@ -83,46 +88,23 @@ This project includes automatic deployment to Vercel on every push to `main`/`ma
 npm install -g vercel
 
 # 2. Deploy manually first time
-cd client
 vercel
 
-# 3. Get your Vercel token
+# 3. Get your Vercel token for GitHub Actions
 vercel token create
 
 # 4. Add to GitHub Secrets
 # Go to: GitHub repo → Settings → Secrets → Actions
 # Add: VERCEL_TOKEN (the token from step 3)
-
-# 5. Set environment variable in Vercel dashboard
-# VITE_API_URL = your backend URL
 ```
 
-**Done!** Every push will auto-deploy. See `VERCEL_SETUP.md` for detailed instructions.
+**Optional: Add Vercel Postgres for persistent storage**
 
-### Frontend (Vercel)
+1. Go to Vercel Dashboard → Your Project → Storage
+2. Create Database → Postgres
+3. Database URL will be automatically injected as `POSTGRES_URL`
 
-```bash
-cd client
-vercel
-```
-
-Set environment variable:
-- `VITE_API_URL`: Your backend URL (e.g., `https://your-app.railway.app`)
-
-### Backend (Railway)
-
-1. Create new project on Railway
-2. Add PostgreSQL database
-3. Deploy from GitHub or via CLI:
-```bash
-cd server
-railway up
-```
-
-Set environment variables:
-- `DATABASE_URL`: Automatically set by Railway
-- `PORT`: Automatically set by Railway
-- `NODE_ENV`: `production`
+**Done!** Every push will auto-deploy. See `.github/workflows/deploy.yml` for CI/CD configuration.
 
 ### Alternative: Full Docker Deploy
 

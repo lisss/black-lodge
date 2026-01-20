@@ -1,6 +1,12 @@
 # Vercel Deployment Setup
 
-This project automatically deploys to Vercel on every push to `main` or `master` branch.
+This project is fully deployed on Vercel with automatic deployments on every push to `main` branch.
+
+## Architecture
+
+- **Frontend**: React static site
+- **Backend**: Express API as Vercel serverless function (`api/index.ts`)
+- **Database**: In-memory storage (upgradeable to Vercel Postgres)
 
 ## Initial Setup
 
@@ -13,7 +19,6 @@ npm install -g vercel
 ### 2. Deploy Manually First Time
 
 ```bash
-cd client
 vercel
 ```
 
@@ -22,14 +27,14 @@ Follow the prompts:
 - Which scope? Choose your account
 - Link to existing project? **No**
 - Project name? **black-lodge** (or your choice)
-- Directory? **./** (it's already in client folder)
+- Directory? **./**
 - Override settings? **No**
 
-### 3. Get Your Vercel Tokens
+Vercel will detect the configuration from `vercel.json`.
+
+### 3. Get Your Vercel Token
 
 ```bash
-# Get your Vercel token
-vercel login
 vercel token create
 ```
 
@@ -40,56 +45,81 @@ Copy the token that's generated.
 Go to your GitHub repository:
 1. Settings → Secrets and variables → Actions
 2. Click "New repository secret"
-3. Add these secrets:
+3. Add:
 
 **VERCEL_TOKEN**
 - Value: The token from step 3
 
-**VERCEL_ORG_ID** (optional, but recommended)
+**Optional (for better reliability):**
+
 ```bash
-cat client/.vercel/project.json
+cat .vercel/project.json
 ```
-Copy the `orgId` value
 
-**VERCEL_PROJECT_ID** (optional, but recommended)
-```bash
-cat client/.vercel/project.json
-```
-Copy the `projectId` value
+Add these as GitHub secrets:
+- **VERCEL_ORG_ID**: Copy the `orgId` value
+- **VERCEL_PROJECT_ID**: Copy the `projectId` value
 
-### 5. Set Environment Variables in Vercel
-
-In Vercel dashboard:
-1. Go to your project → Settings → Environment Variables
-2. Add:
-   - **VITE_API_URL**: Your backend URL (e.g., `https://your-app.railway.app`)
-
-### 6. Push to GitHub
+### 5. Push to GitHub
 
 ```bash
 git add .
-git commit -m "Add Vercel auto-deployment"
+git commit -m "Configure Vercel deployment"
 git push origin main
 ```
 
-The deployment will trigger automatically!
+The deployment will trigger automatically via GitHub Actions!
+
+## Optional: Add Persistent Database
+
+By default, the app works with in-memory storage. To add persistent storage:
+
+1. **Go to Vercel Dashboard** → Your Project → Storage
+2. **Create Database** → Postgres
+3. **Name it** (e.g., `black-lodge-db`)
+
+Vercel automatically injects `POSTGRES_URL` into your serverless functions - no manual configuration needed!
 
 ## Manual Deployment
 
-To deploy manually anytime:
+Deploy manually anytime:
 
 ```bash
-cd client
+# Deploy to production
 vercel --prod
+
+# Deploy to preview
+vercel
 ```
 
-## Monitoring Deployments
+## Monitoring
 
-- View GitHub Actions: Repository → Actions tab
-- View Vercel deployments: https://vercel.com/dashboard
+- **GitHub Actions**: Repository → Actions tab
+- **Vercel Dashboard**: https://vercel.com/dashboard
+- **Function Logs**: Vercel Dashboard → Your Project → Logs
 
-## Environment Variables
+## How It Works
 
-Make sure to set `VITE_API_URL` in Vercel to point to your deployed backend (Railway, Render, etc.)
+1. **Push to GitHub** → Triggers GitHub Actions workflow
+2. **GitHub Actions** → Builds and deploys to Vercel
+3. **Vercel** → 
+   - Builds frontend (React) → CDN
+   - Deploys `api/index.ts` → Serverless function
+   - Routes `/api/*` requests → Serverless function
+4. **Your app** → Live at `https://your-project.vercel.app`
 
-Without this, the frontend won't be able to connect to the backend API.
+## Troubleshooting
+
+### Deployment fails
+- Check GitHub Actions logs
+- Verify `VERCEL_TOKEN` is set in GitHub secrets
+- Ensure `vercel.json` is properly configured
+
+### API not working
+- Check function logs in Vercel Dashboard
+- Verify routes in `api/index.ts` match frontend calls
+- Test health endpoint: `https://your-domain.vercel.app/health`
+
+### Need help?
+- Vercel docs: https://vercel.com/docs
+- GitHub Actions docs: https://docs.github.com/actions
