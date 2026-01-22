@@ -5,19 +5,19 @@ const memoryStore = new Map();
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'PUT, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
 
-  if (req.method !== 'PUT') {
+  if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const { sessionId } = req.query;
-  const { currentStep, choices } = req.body;
+  const { step, choice } = req.body;
 
   try {
     if (process.env.POSTGRES_URL || process.env.DATABASE_URL) {
@@ -26,8 +26,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
       
       const result = await pool.query(
-        'UPDATE quest_sessions SET current_step = $1, choices = $2, updated_at = CURRENT_TIMESTAMP WHERE session_id = $3 RETURNING *',
-        [currentStep, JSON.stringify(choices), sessionId]
+        `UPDATE quest_sessions 
+         SET current_step = $1, 
+             choices = choices || $2::jsonb,
+             updated_at = CURRENT_TIMESTAMP
+         WHERE session_id = $3 
+         RETURNING *`,
+        [step, JSON.stringify([choice]), sessionId]
       );
       
       await pool.end();
@@ -42,8 +47,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       if (!session) {
         return res.status(404).json({ error: 'Session not found' });
       }
-      session.current_step = currentStep;
-      session.choices = choices;
+      session.current_step = step;
+      session.choices = [...session.choices, choice];
       session.updated_at = new Date().toISOString();
       memoryStore.set(sessionId, session);
       return res.status(200).json(session);
