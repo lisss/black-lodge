@@ -1,21 +1,13 @@
-### Welcome to The Lodge, Sweety-Kitty :) This is an absurd stuff you don't need to understand at all. Like, when you read the 'Alice in Wonderland' or watch any David Lynch's movie. Just accept that it's gonna be weird
+### THE LODGE
+
+Welcome to The Lodge, Sweety-Kitty :) This is an absurd stuff you don't need to understand at all. Like, when you read the 'Alice in Wonderland' or watch any David Lynch's movie. Just accept that it's gonna be weird
 
 A WWII espionage quest with Twin Peaks-inspired surreal mystery elements. Decode classified photographs, solve cryptic puzzles, and uncover the truth about The ABSRD lodge.
 
 ## Tech Stack
-
-- **Frontend**: React 18 + TypeScript + SASS
-- **Backend**: Node.js + Express + PostgreSQL
-- **Infrastructure**: Docker + Docker Compose
-- **Deployment**: Vercel (serverless functions)
+react, ts, node, postgres, docker, vercel
 
 ## Local Development
-
-### Prerequisites
-
-- Node.js 20+
-- Docker & Docker Compose
-- npm
 
 ### Development Mode (with Hot Reloading) ⚡
 
