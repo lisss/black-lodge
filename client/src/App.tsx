@@ -18,20 +18,26 @@ function App() {
 
   useEffect(() => {
     const savedSessionId = localStorage.getItem('blacklodge_session');
-    if (savedSessionId) {
+    if (savedSessionId && savedSessionId !== 'undefined') {
       loadSession(savedSessionId);
     }
   }, []);
 
   const loadSession = async (sessionId: string) => {
+    if (!sessionId || sessionId === 'undefined') return;
+    
     try {
       const response = await fetch(`${API_URL}/api/session/${sessionId}`);
       if (response.ok) {
         const data = await response.json();
         setSession(data);
+      } else {
+        // If session not found, clear it from localStorage
+        localStorage.removeItem('blacklodge_session');
       }
     } catch (error) {
       console.error('Failed to load session:', error);
+      localStorage.removeItem('blacklodge_session');
     }
   };
 
