@@ -47,6 +47,44 @@
     color: $color-red-room;
     border-color: $color-red-room;
     font-size: 1.2rem;
+    z-index: 10;
+  }
+
+  &__portrait {
+    float: right;
+    margin: 0 0 $spacing-md $spacing-md;
+    text-align: center;
+    max-width: 200px;
+
+    @media (max-width: 768px) {
+      float: none;
+      margin: 0 auto $spacing-lg auto;
+      max-width: 180px;
+    }
+
+    .churchill-photo {
+      width: 100%;
+      height: auto;
+      border: 3px solid $color-black;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      filter: grayscale(100%) sepia(20%) brightness(0.9);
+      display: block;
+      transition: filter 0.3s ease;
+
+      &:hover {
+        filter: grayscale(100%) sepia(30%) brightness(0.95);
+      }
+    }
+
+    .portrait-label {
+      @include typewriter-effect;
+      font-size: 0.7rem;
+      color: $color-black;
+      margin-top: $spacing-xs;
+      padding: $spacing-xs;
+      border: 1px solid $color-black;
+      background: rgba(0, 0, 0, 0.05);
+    }
   }
 
   &__title {
@@ -87,6 +125,15 @@
     strong {
       color: $color-red-room;
       font-weight: bold;
+    }
+
+    .warning-text {
+      margin-top: $spacing-lg;
+      padding: $spacing-md;
+      border-left: 3px solid $color-red-room;
+      background: rgba(139, 0, 0, 0.05);
+      font-style: italic;
+      text-indent: 0 !important;
     }
   }
 

@@ -17,9 +17,9 @@ export interface QuestStep {
 
 export const questSteps: QuestStep[] = [
   {
-    title: 'WELCOME TO THE INVESTIGATION',
+    title: 'WELCOME TO THE LODGE, VEDMI!',
     caption: 'CHURCHILL\'S BRIEFING ROOM - APRIL 1943',
-    description: 'Churchill pours himself a whisky and lights a fresh cigar. Through the smoke, he slides a worn leather notebook across his desk. "Mr. Cooper had a peculiar habit — writing things backwards to keep them secret. Start with page one. It mentions owls, of all things, and two words. Strange fellow — always said the world was wild at heart and weird on top."',
+    description: 'The Prime Minister is in his shirtsleeves, tie loosened, ash from his Romeo y Julieta scattered across classified folders. "Ah, there you are. Bit late, but no matter." He slides a battered leather notebook toward you with surprising force. "Mr. Cooper. Photographer. Vanished three weeks ago. Left this behind — coded gibberish and owl doodles. The man once told me the world was \'wild at heart and weird on top\'. Thought he was drunk. Now I\'m not so sure." He refills his crystal tumbler without offering you one.',
     clue: (
       <div>
         <p><strong>Mr. Cooper's First Note:</strong></p>
@@ -38,7 +38,7 @@ export const questSteps: QuestStep[] = [
     },
   },
   {
-    title: 'THE FIRST PHOTOGRAPH',
+    title: 'THE CRIMSON ROOM',
     caption: 'RECONNAISSANCE PHOTO - BERLIN - MARCH 18, 1943',
     image: (
       <div className="ascii-art">
@@ -58,23 +58,24 @@ export const questSteps: QuestStep[] = [
         `}</pre>
       </div>
     ),
-    description: 'Churchill takes a long draw from his cigar and studies the photograph. "This aerial photo shows an underground bunker in Berlin. Red curtains, 50 feet underground. Impossible." He taps ash into a crystal ashtray. "Mr. Cooper circled this and wrote about coffee, zigzag floors, and something watching. Also sketched a woman in trouble, wandering dark streets. Peculiar mind."',
+    description: '"Reconnaissance photo. Berlin. March 18th." Churchill jabs at the image with a stubby finger, nearly dropping his cigar. "That\'s 50 feet underground. Solid concrete above. So tell me — how in God\'s name do we have a room with red velvet curtains? Wine-dark red. Theatrical. Completely mad." He pauses to relight his cigar. "Cooper scrawled nonsense next to it: \'damn fine coffee\', \'zigzag floors\', \'something is watching\'. Then sketched a woman, lost, in dark streets. The man was either brilliant or unhinged. Possibly both."',
     clue: (
       <div>
-        <p>The room is precisely 24 feet by 24 feet. The curtains are deep red, like wine.</p>
-        <p><strong>Mr. Cooper's note in margin:</strong> <em>&quot;Through the darkness of future past... the room waits. A yellow light in the distance.&quot;</em></p>
-        <p><strong>What should we do?</strong> Churchill looks at you expectantly, whisky in hand.</p>
+        <p><strong>Technical measurements:</strong> 24 x 24 feet. Ceiling height: 12 feet. Curtains: deep crimson, velvet, floor-to-ceiling.</p>
+        <p><strong>Cooper's scrawled note:</strong> <em>"Through the darkness of future past... the room WAITS. Yellow light. Humming sound. Coffee smell? Impossible. 50 feet of concrete. WHERE IS THE DOOR?"</em></p>
+        <p><strong>Coffee stain on corner of photo.</strong></p>
+        <p>Churchill is watching you. Waiting. The whisky glass gleams in his hand like amber ice.</p>
       </div>
     ),
     choices: [
-      { text: 'This deserves investigation. Mr. Cooper was onto something.' },
-      { text: 'It\'s probably just a photo development error.' },
+      { text: 'Cooper was onto something. We need to dig deeper.' },
+      { text: 'Probably a double exposure. Dark room errors. Nothing more.' },
     ],
   },
   {
-    title: 'MORRISON\'S FAVORITE PUZZLE',
+    title: 'THE GREETING',
     caption: 'NOTEBOOK - PAGE 8 - "A SIMPLE CIPHER"',
-    description: 'Churchill refills his glass of scotch. "Mr. Cooper loved puzzles and codes. Always had a cup of coffee while working them — said it helped thinking. This page has a simple number cipher with a friendly greeting. A=1, B=2, and so on. Elementary, really."',
+    description: 'You turn to page 8. Churchill is watching you over his glass, calculating. "Cooper loved his little games. Apparently couldn\'t order breakfast without encoding it first. This one\'s child\'s play — basic substitution cipher. A equals 1, B equals 2, and so forth." He takes a deliberate sip. "Though I wonder who he was greeting. No one ever came to see him. Lived alone in a dreary flat. Just him and his coffee. Drank it black as midnight on a moonless night, he said." Churchill snorts. "Theatrical sod."',
     clue: (
       <div className="cipher-text">
         8 - 5 - 12 - 12 - 15
@@ -91,8 +92,8 @@ export const questSteps: QuestStep[] = [
     },
   },
   {
-    title: 'THE PATTERN EMERGES',
-    caption: 'RECONNAISSANCE PHOTO - PRAGUE - APRIL 2, 1943',
+    title: 'PRAGUE',
+    caption: 'RECONNAISSANCE PHOTO - APRIL 2, 1943',
     image: (
       <div className="ascii-art">
         <pre>{`
@@ -111,33 +112,39 @@ export const questSteps: QuestStep[] = [
         `}</pre>
       </div>
     ),
-    description: '"Another sighting," Churchill says, relighting his cigar. "Same dimensions. Same impossible location. But now we see the floor — perfect zigzag pattern, black and white. Mr. Cooper wrote about dancing, dreams, and someone lost on a street in Poland. Getting rather strange, I must say."',
+    description: 'Churchill slaps another photograph on the desk. "Prague. Two weeks later." His voice is harder now, whisky-roughened. "Same room. Same bloody impossible room, but now we see inside. The floor — look at it — perfect black and white zigzag. Like some demented chessboard." He\'s pacing now, cigar trailing smoke. "Cooper wrote about dancing. About dreams spilling into waking. About streets in Poland where women wander lost, silk and shadow." Churchill stops, fixes you with a look. "This stopped being amusing several photographs ago."',
     clue: (
       <div>
-        <p><strong>Mr. Cooper's note:</strong> "Three cities, one room. I think it's not IN these places — I think it exists BETWEEN them, somehow."</p>
-        <p><em>Scribbled at bottom: "Is it future, or is it past? The silk curtain splits..."</em></p>
-        <p>The photographs are authentic. The locations are confirmed. But how can the same room exist in multiple places?</p>
+        <p><strong>Cooper's increasingly frantic notes:</strong></p>
+        <p><em>"Berlin. Prague. Warsaw. Same room. Same measurements. Same EVERYTHING."</em></p>
+        <p><em>"Not IN these cities. BETWEEN them. Between spaces. Between times???"</em></p>
+        <p><em>"Is it future or is it past? The silk curtains are splitting. I can almost see through—"</em></p>
+        <p><strong>[The rest is smudged, possibly by water or... tears?]</strong></p>
+        <p>Three separate intelligence sources. Three identical rooms. All verified. All impossible.</p>
       </div>
     ),
     choices: [
-      { text: 'Continue the investigation. This is getting interesting.' },
-      { text: 'Something supernatural is happening here.' },
+      { text: 'This goes beyond coincidence. We must continue.' },
+      { text: 'Three identical rooms? We\'re dealing with something beyond physics.' },
     ],
   },
   {
-    title: 'MORRISON\'S LAST MESSAGE',
-    caption: 'RADIO TRANSMISSION - APRIL 5, 1943',
-    description: 'Three days before vanishing, Mr. Cooper sent a garbled radio message. Most of it was lost to static, but you managed to reconstruct the final words. They are written backwards again — Mr. Cooper\'s signature security method.',
+    title: 'THE LAST TRANSMISSION',
+    caption: 'RADIO INTERCEPT - APRIL 5, 1943 - 2:47 AM',
+    description: 'Churchill sets down his glass. The room feels colder. "Three days before he vanished, Cooper broke radio silence. Middle of the night. Static like hell, but we caught fragments." He hands you the transcript, and you notice his hand isn\'t quite steady. "The last bit came through clear. Backwards, naturally — the paranoid bastard\'s trademark. Our cryptographers worked on it for two days before I told them to just read it in a bloody mirror."',
     clue: (
       <div className="transmission-text">
-        <p className="glitch-text">[STATIC... BREAKING UP...]</p>
-        <p>&quot;...found something... the room is real... I am going to...&quot;</p>
-        <p className="glitch-text">[HEAVY STATIC]</p>
-        <p><strong>Final words (backwards):</strong></p>
+        <p className="glitch-text">[STATIC... SIGNAL WEAK... 2:47 AM]</p>
+        <p>&quot;...Cooper here... found it... the room... it's real... God help me it's REAL...&quot;</p>
+        <p className="glitch-text">[INTERFERENCE... CRACKLING...]</p>
+        <p>&quot;...the owls... they're watching... the curtains are opening... I can see...&quot;</p>
+        <p className="glitch-text">[SCREAMING STATIC]</p>
+        <p><strong>Final transmission (backwards, crystal clear):</strong></p>
         <div className="backwards-text">
           &quot;...kcab emoc t'now I&quot;
         </div>
-        <p className="glitch-text">[TRANSMISSION ENDS]</p>
+        <p className="glitch-text">[CARRIER WAVE TERMINATED - 2:53 AM]</p>
+        <p><em>Radio operator's note: "Never heard a man sound so certain of anything."</em></p>
       </div>
     ),
     hint: 'Remember: Mr. Cooper always wrote important things backwards. Read from right to left.',
@@ -148,22 +155,23 @@ export const questSteps: QuestStep[] = [
     },
   },
   {
-    title: 'YOUR DECISION',
-    caption: 'CHURCHILL\'S OFFICE - APRIL 10, 1943',
-    description: 'You have laid out everything you found. Churchill pours two glasses of whisky and offers you one. He lights a fresh Romeo y Julieta cigar, his favorite.',
+    title: 'THE THRESHOLD',
+    caption: 'CHURCHILL\'S OFFICE - APRIL 10, 1943 - 1:15 AM',
+    description: 'The investigation is laid out before you both like cards in a grim game. For once, Churchill pours two glasses. The good stuff. He pushes one across to you without a word, then lights what must be his tenth cigar of the evening.',
     clue: (
       <div>
-        <p><em>&quot;So. Mr. Cooper found something inexplicable — a room that defies location and logic. Owls. Backwards messages. Dreams bleeding into reality. And now Mr. Cooper is gone.&quot;</em></p>
-        <p>He takes a slow sip of scotch.</p>
-        <p><em>&quot;I have fought in trenches, commanded armies, survived assassination attempts. But this... this is something else entirely.&quot;</em></p>
-        <p><em>&quot;The photographs are real. The mystery is real. The question now: do we pursue truth, no matter how dark the path? Or do we leave some doors unopened?&quot;</em></p>
-        <p>Churchill looks at you through a cloud of cigar smoke, waiting for your counsel.</p>
+        <p>He stands at the window, looking out at blacked-out London. When he speaks, his voice is different — quieter, almost contemplative.</p>
+        <p><em>&quot;I\'ve seen men die screaming in trenches. Ordered thousands to their deaths with a signature. Stared down Hitler across a chessboard of nations. But this...&quot;</em></p>
+        <p>He turns to face you.</p>
+        <p><em>&quot;Cooper found something that shouldn\'t exist. A room between worlds. Dreams made solid. Owls that aren\'t owls. And he walked into it knowing he wouldn\'t return. The question isn\'t whether it\'s real — the photographs don\'t lie. The question is whether we have the courage to look into the dark when the dark is looking back.&quot;</em></p>
+        <p>Churchill raises his glass. The amber liquid catches the lamplight.</p>
+        <p><em>&quot;Some doors, once opened, don\'t close again. So I ask you: do we open this one?&quot;</em></p>
       </div>
     ),
     choices: [
-      { text: 'Seal the files. Some mysteries are too dangerous.' },
-      { text: 'The investigation must continue. We need answers.' },
-      { text: 'Mr. Cooper walked through fire for this truth. Honor that.' },
+      { text: 'Seal the files. Burn them. Some doors should stay closed.' },
+      { text: 'The truth matters, no matter the cost. Press forward.' },
+      { text: 'Cooper knew he wouldn\'t return. We owe him the truth.' },
     ],
   },
 ];
