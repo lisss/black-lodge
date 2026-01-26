@@ -74,6 +74,42 @@ export const questSteps: QuestStep[] = [
     },
   },
   {
+    title: 'THE CAESAR CODE',
+    caption: 'NOTEBOOK - PAGE 3 - "SHIFT BY THREE"',
+    description:
+      'Churchill flips to page 3. "Cooper was fond of ancient codes. This one\'s ' +
+      'from Julius Caesar himself — each letter shifted by three positions. ' +
+      'A becomes D, B becomes E, and so forth." He taps the page with his cigar. ' +
+      '"Simple, but effective. Crack it."',
+    clue: (
+      <div
+        className="cipher-text"
+        style={{
+          fontSize: '1.6em',
+          padding: '20px',
+          background: '#f9f9f9',
+          textAlign: 'center',
+          fontFamily: 'monospace'
+        }}
+      >
+        <p><strong>Cooper's Message:</strong></p>
+        <div style={{ letterSpacing: '3px', marginTop: '15px' }}>
+          WKH RZO
+        </div>
+        <br />
+        <p style={{ fontSize: '0.5em', marginTop: '15px' }}>
+          💡 Hint: Shift each letter back by 3 (D→A, E→B, F→C...)
+        </p>
+      </div>
+    ),
+    hint: 'W minus 3 = T, K minus 3 = H, H minus 3 = E',
+    puzzle: {
+      question: 'What does Cooper\'s Caesar cipher say?',
+      answers: ['the owl', 'theowl', 'THE OWL', 'THEOWL'],
+      hint: 'Move each letter back 3 positions in the alphabet',
+    },
+  },
+  {
     title: 'THE CRIMSON ROOM',
     caption: 'RECONNAISSANCE PHOTO - BERLIN - MARCH 18, 1943',
     image: (
@@ -159,6 +195,50 @@ export const questSteps: QuestStep[] = [
     },
   },
   {
+    title: 'MORSE FROM THE DARK',
+    caption: 'TELEGRAPH INTERCEPT - MARCH 25, 1943',
+    image: (
+      <div style={{ fontSize: '3em', textAlign: 'center', padding: '20px' }}>
+        📡
+      </div>
+    ),
+    description:
+      '"Before the radio transmission, we intercepted this telegraph message." ' +
+      'Churchill slides a yellowed paper across. "Morse code. Cooper was a radio ' +
+      'operator in the Great War — he never forgot it. Dots and dashes. You know ' +
+      'how to read them, yes?"',
+    clue: (
+      <div
+        className="morse-text"
+        style={{
+          fontSize: '1.8em',
+          padding: '20px',
+          background: '#000',
+          color: '#0f0',
+          textAlign: 'center',
+          fontFamily: 'monospace',
+          letterSpacing: '5px'
+        }}
+      >
+        <p><strong style={{ color: '#fff' }}>COOPER'S TELEGRAPH:</strong></p>
+        <br />
+        <div>
+          .... . .-.. .--. -- .
+        </div>
+        <br />
+        <p style={{ fontSize: '0.4em', color: '#fff', marginTop: '15px' }}>
+          💡 Morse code: H = ...., E = ., L = .-.., P = .--., M = --
+        </p>
+      </div>
+    ),
+    hint: 'Break it into letters: .... (H), . (E), .-.. (L), .--. (P), -- (M), . (E)',
+    puzzle: {
+      question: 'What is Cooper saying in Morse code?',
+      answers: ['help me', 'helpme', 'HELP ME', 'HELPME', 'Help me'],
+      hint: 'Decode each group of dots/dashes: .... = H, . = E',
+    },
+  },
+  {
     title: 'PRAGUE',
     caption: 'RECONNAISSANCE PHOTO - APRIL 2, 1943',
     image: (
@@ -196,6 +276,55 @@ export const questSteps: QuestStep[] = [
         text: '▸ Three identical rooms? Something beyond physics.'
       },
     ],
+  },
+  {
+    title: 'THE SYMBOL CIPHER',
+    caption: 'NOTEBOOK - FINAL PAGE - "OWL SYMBOLS"',
+    image: (
+      <div style={{ fontSize: '4em', textAlign: 'center' }}>
+        🦉
+      </div>
+    ),
+    description:
+      'Churchill opens the notebook to the last page. Strange symbols fill it — ' +
+      'owls, crescents, triangles. "Cooper created his own cipher. Mad genius." ' +
+      'He points to a key at the bottom. "Simple substitution. Each symbol is a letter."',
+    clue: (
+      <div style={{ padding: '20px', background: '#f9f9f9' }}>
+        <p><strong>Cooper's Cipher Key:</strong></p>
+        <div style={{ 
+          fontSize: '0.9em', 
+          fontFamily: 'monospace',
+          background: '#fff',
+          padding: '15px',
+          border: '2px solid #000',
+          marginTop: '10px'
+        }}>
+          <p>🦉 = R &nbsp;&nbsp; 🌙 = E &nbsp;&nbsp; △ = D</p>
+        </div>
+        <br />
+        <p><strong>Cooper's Message:</strong></p>
+        <div style={{ 
+          fontSize: '2.5em', 
+          textAlign: 'center',
+          padding: '20px',
+          background: '#000',
+          color: '#fff',
+          letterSpacing: '10px'
+        }}>
+          🦉 🌙 △
+        </div>
+        <p style={{ fontSize: '0.85em', marginTop: '15px', fontStyle: 'italic' }}>
+          💡 Replace each symbol with its letter from the key above
+        </p>
+      </div>
+    ),
+    hint: '🦉 = R, 🌙 = E, △ = D',
+    puzzle: {
+      question: 'Decode Cooper\'s symbol message:',
+      answers: ['red', 'RED', 'Red'],
+      hint: 'Owl is R, Moon is E, Triangle is D',
+    },
   },
   {
     title: 'THE LAST TRANSMISSION',
