@@ -32,7 +32,8 @@ function App() {
         const data = await response.json();
         setSession(data);
       } else {
-        // If session not found, clear it from localStorage
+        // Session lost (Vercel spun up new instance) - start fresh
+        console.log('Session not found, starting fresh...');
         localStorage.removeItem('blacklodge_session');
       }
     } catch (error) {
@@ -65,6 +66,27 @@ function App() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ step, choice }),
       });
+      
+      if (!response.ok) {
+        // Session lost - recreate and continue
+        console.log('Session lost, recreating...');
+        const newSession = await fetch(`${API_URL}/api/session/start`, { method: 'POST' });
+        const newData = await newSession.json();
+        
+        // Update to new session at current step
+        await fetch(`${API_URL}/api/session/${newData.session_id}/progress`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ step, choice }),
+        });
+        
+        const updated = await fetch(`${API_URL}/api/session/${newData.session_id}`);
+        const updatedData = await updated.json();
+        setSession(updatedData);
+        localStorage.setItem('blacklodge_session', newData.session_id);
+        return;
+      }
+      
       const data = await response.json();
       setSession(data);
     } catch (error) {

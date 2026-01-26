@@ -1,5 +1,5 @@
 export interface QuestStep {
-  title: string;
+  title: string | React.ReactNode;
   description: string;
   caption: string;
   image?: React.ReactNode;
@@ -17,7 +17,13 @@ export interface QuestStep {
 
 export const questSteps: QuestStep[] = [
   {
-    title: 'WELCOME TO THE LODGE, VEDMI!',
+    title: (
+      <>
+        WELCOME TO THE LODGE, VEDMI!<br/>
+        Let's assume it's a{' '}
+        <span style={{ textDecoration: 'line-through' }}>depressive</span> black lodge :)
+      </>
+    ),
     caption: 'CHURCHILL\'S BRIEFING ROOM - APRIL 1943',
     image: (
       <img 
@@ -72,13 +78,13 @@ export const questSteps: QuestStep[] = [
     caption: 'RECONNAISSANCE PHOTO - BERLIN - MARCH 18, 1943',
     image: (
       <img 
-        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" 
+        src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop" 
         alt="Red velvet curtains"
         style={{
           width: '100%',
           maxWidth: '400px',
           border: '3px solid #000',
-          filter: 'grayscale(30%) sepia(40%) hue-rotate(-10deg)'
+          filter: 'sepia(100%) saturate(300%) hue-rotate(-50deg) brightness(0.8)'
         }}
       />
     ),
@@ -98,8 +104,10 @@ export const questSteps: QuestStep[] = [
             Coffee smell. WHERE IS THE DOOR?"
           </em>
         </p>
-        <p><strong>Coffee stain on corner of photo.</strong></p>
-        <p>Churchill is watching you, waiting. The whisky glass gleams in his hand.</p>
+        <p><strong>Red curtains. Deep crimson. Like velvet.</strong></p>
+        <p>
+          Churchill is watching you, waiting. His cigar smoke curls in the dim light.
+        </p>
       </div>
     ),
     choices: [
