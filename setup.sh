@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🎬 Setting up The ABSRD lodge..."
+echo "🎬 Setting up The DSBM lodge..."
 
 if ! command -v docker &> /dev/null; then
     echo "❌ Docker is not installed. Please install Docker first."

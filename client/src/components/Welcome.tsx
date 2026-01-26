@@ -17,7 +17,7 @@ function Welcome({ onStart, loading }: WelcomeProps) {
             />
             <div className="portrait-label">PM CHURCHILL - APR 1943</div>
           </div>
-          <h1 className="dossier__title">THE ABSRD LODGE</h1>
+          <h1 className="dossier__title">THE DSBM LODGE</h1>
           <div className="dossier__classification">
             CLASSIFIED: EYES ONLY
             <br />
@@ -42,7 +42,7 @@ function Welcome({ onStart, loading }: WelcomeProps) {
               Then the radio transmission at 2:47 AM: "I won't come back." Mr. Cooper vanished that night.
             </p>
             <p>
-              Churchill swirls his whisky, eyes hard. "Cooper called it the ABSRD Lodge. Enemy intelligence? Mass hallucination? 
+              Churchill swirls his whisky, eyes hard. "Cooper called it the DSBM Lodge. Enemy intelligence? Mass hallucination? 
               Or something we don't have words for yet?" He slides the notebook across his desk. "Your orders: follow Cooper's trail. 
               Solve what he couldn't. Find out what happens when you open a door that shouldn't exist."
             </p>

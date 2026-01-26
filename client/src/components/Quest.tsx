@@ -40,7 +40,7 @@ function Quest({ session, onProgress, onComplete, onReset }: QuestProps) {
           <h1 className="completion__title">MISSION COMPLETE</h1>
           <div className="completion__message">
             <p>
-              You have uncovered the truth of The ABSRD lodge.
+              You have uncovered the truth of The DSBM lodge.
             </p>
             <p>
               The photographer's final note reads:

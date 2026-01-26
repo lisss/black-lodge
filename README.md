@@ -2,7 +2,7 @@
 
 Welcome to The Lodge, Sweety-Kitty :) This is an absurd stuff you don't need to understand at all. Like, when you read the 'Alice in Wonderland' or watch any David Lynch's movie. Just accept that it's gonna be weird
 
-A WWII espionage quest with Twin Peaks-inspired surreal mystery elements. Decode classified photographs, solve cryptic puzzles, and uncover the truth about The ABSRD lodge.
+A WWII espionage quest with Twin Peaks-inspired surreal mystery elements. Decode classified photographs, solve cryptic puzzles, and uncover the truth about The DSBM lodge.
 
 ## Tech Stack
 react, ts, node, postgres, docker, vercel

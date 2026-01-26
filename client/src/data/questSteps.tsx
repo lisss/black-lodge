@@ -63,12 +63,12 @@ export const questSteps: QuestStep[] = [
     puzzle: {
       question: 'What two words did Mr. Cooper write?',
       answers: [
-        'absrd lodge',
-        'absrdlodge',
-        'the absrd lodge',
-        'theabsrdlodge',
-        'ABSRD lodge',
-        'ABSRD LODGE'
+        'dsmb lodge',
+        'dsmblodge',
+        'the dsmb lodge',
+        'thedsmblodge',
+        'DSBM lodge',
+        'DSBM LODGE'
       ],
       hint: 'Start from the end: A is the last letter, work your way to the beginning',
     },
