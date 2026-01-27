@@ -52,12 +52,9 @@ export const questSteps: QuestStep[] = [
           className="backwards-text"
           style={{ fontSize: '1.5em', padding: '10px', background: '#f0f0f0' }}
         >
-          ".egdoL DRSBA"
+          ".egdoL MBSD"
         </div>
-        <p className="code-text">
-          💡 Hint: Try reading it backwards (right to left)
-        </p>
-        <p><em>Margin note: "The owls are not what they seem..."</em></p>
+        <p><em>Margin note: "The owls are not what they seem... And the lodge is not what is could seem"</em></p>
       </div>
     ),
     puzzle: {
@@ -70,7 +67,6 @@ export const questSteps: QuestStep[] = [
         'DSBM lodge',
         'DSBM LODGE'
       ],
-      hint: 'Start from the end: A is the last letter, work your way to the beginning',
     },
   },
   {
@@ -166,7 +162,7 @@ export const questSteps: QuestStep[] = [
       />
     ),
     description:
-      'You turn to page 8. Churchill is watching you. "Cooper loved his games. ' +
+      'Churchill is watching you. "Cooper loved his games. ' +
       'This one is simple — A equals 1, B equals 2, C equals 3, and so on." ' +
       'He takes a sip of whisky. "Just convert the numbers to letters."',
     clue: (
@@ -312,7 +308,11 @@ export const questSteps: QuestStep[] = [
           color: '#fff',
           letterSpacing: '10px'
         }}>
-          🦉 🌙 △
+          <img 
+            src="data:image/png;base64,iVBORw0KGgo..." 
+            alt="Cipher symbols"
+            style={{ width: '100%', maxWidth: '600px' }}
+          />
         </div>
         <p style={{ fontSize: '0.85em', marginTop: '15px', fontStyle: 'italic' }}>
           💡 Replace each symbol with its letter from the key above
