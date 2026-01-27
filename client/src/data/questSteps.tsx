@@ -93,9 +93,6 @@ export const questSteps: QuestStep[] = [
           WKH RZO
         </div>
         <br />
-        <p style={{ fontSize: '0.5em', marginTop: '15px' }}>
-          💡 Hint: Shift each letter back by 3 (D→A, E→B, F→C...)
-        </p>
       </div>
     ),
     hint: 'W minus 3 = T, K minus 3 = H, H minus 3 = E',
@@ -109,16 +106,27 @@ export const questSteps: QuestStep[] = [
     title: 'THE CRIMSON ROOM',
     caption: 'RECONNAISSANCE PHOTO - BERLIN - MARCH 18, 1943',
     image: (
-      <img 
-        src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop" 
-        alt="Red velvet curtains"
-        style={{
-          width: '100%',
-          maxWidth: '400px',
-          border: '3px solid #000',
-          filter: 'sepia(100%) saturate(300%) hue-rotate(-50deg) brightness(0.8)'
-        }}
-      />
+      <div style={{ position: 'relative', width: '100%', maxWidth: '600px' }}>
+        {/* Red curtains background */}
+        <img 
+          src="https://images.unsplash.com/photo-1585331169545-59d19f025def?w=800&h=600&fit=crop"
+          style={{
+            width: '100%',
+            position: 'absolute',
+            filter: 'brightness(0.6)'
+          }}
+        />
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Sir_Winston_S_Churchill.jpg"
+          style={{
+            width: '40%',
+            position: 'absolute',
+            left: '10px',
+            bottom: '10px',
+            border: '2px solid #000'
+          }}
+        />
+      </div>
     ),
     description:
       '"Reconnaissance photo. Berlin. March 18th." Churchill jabs at the image ' +
