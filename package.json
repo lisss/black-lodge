@@ -10,9 +10,10 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "npm run dev --workspace=server",
     "dev:client": "npm run dev --workspace=client",
-    "build": "npm run build --workspace=client",
+    "build": "cd client && npm install && npm run build",
     "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down"
+    "docker:down": "docker-compose down",
+    "vercel-build": "cd client && npm install && npm run build && mv dist ../dist"
   },
   "dependencies": {
     "express": "^4.18.2",
