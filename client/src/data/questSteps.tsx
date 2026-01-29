@@ -184,7 +184,6 @@ export const questSteps: QuestStep[] = [
     puzzle: {
       question: 'What does the code say?',
       answers: ['hi', 'HI', 'Hi'],
-      hint: 'The 8th letter is H, the 9th letter is I',
     },
   },
   {
@@ -346,8 +345,6 @@ export const questSteps: QuestStep[] = [
         <p>&quot;...Cooper here... found the room... it's real...&quot;</p>
         <p className="glitch-text">[INTERFERENCE...]</p>
         <p>&quot;...the owls are watching... the curtains are opening...&quot;</p>
-        <p className="glitch-text">[STATIC]</p>
-        <p><strong>Final words (backwards):</strong></p>
         <div
           className="backwards-text"
           style={{ fontSize: '1.5em', padding: '10px', background: '#f0f0f0' }}
